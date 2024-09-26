@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import Remaining from "./components/Remaining";
+import ExpenseForm from "./components/ExpenseForm";
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(true);
@@ -11,6 +12,7 @@ function App() {
       <main className="bg-[#5F5394] h-screen">
         <Header />
         <Remaining />
+        <ExpenseForm />
       </main>
 
       {isModalOpen && (
