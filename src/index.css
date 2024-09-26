@@ -21,5 +21,9 @@ code {
 /* ---------------------------------custom------------------------------------------------- */
 
 body {
-  background-color: #EBFDF8;
+  cursor: url('icons/cursor-black.png'), auto;
+}
+
+button:hover {
+  cursor: url('icons/hand.png'), auto;
 }
