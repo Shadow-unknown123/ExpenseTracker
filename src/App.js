@@ -3,16 +3,18 @@ import "./App.css";
 import Header from "./components/Header";
 import Remaining from "./components/Remaining";
 import ExpenseForm from "./components/ExpenseForm";
+import ExpenseList from "./components/ExpenseList";
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(true);
 
   return (
     <>
-      <main className="bg-[#5F5394] h-screen">
+      <main>
         <Header />
         <Remaining />
         <ExpenseForm />
+        <ExpenseList />
       </main>
 
       {isModalOpen && (

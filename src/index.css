@@ -20,6 +20,10 @@ code {
 
 /* ---------------------------------custom------------------------------------------------- */
 
+html {
+  background-color: #5F5394;
+}
+
 body {
   cursor: url('icons/cursor-white.png'), auto;
 }
@@ -31,4 +35,13 @@ button:hover {
 input,
 textarea {
   cursor: url('icons/text-cursor.png'), text;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

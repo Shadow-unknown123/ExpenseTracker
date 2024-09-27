@@ -1,7 +1,7 @@
 export default function Header() {
   return (
     <>
-      <div className="sm:flex sm:bg-[#333333] sm:justify-between sm:px-16 ">
+      <div className="sm:flex sm:bg-[#333333] sm:justify-between sm:px-16 sticky top-0 z-10 ">
         <div className="bg-[#333333] py-7 sm:py-8 text-white font-bold text-3xl flex justify-center items-center sm:text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl">
           <h1>Expense Tracker</h1>
         </div>
