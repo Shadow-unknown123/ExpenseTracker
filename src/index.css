@@ -21,9 +21,14 @@ code {
 /* ---------------------------------custom------------------------------------------------- */
 
 body {
-  cursor: url('icons/cursor-black.png'), auto;
+  cursor: url('icons/cursor-white.png'), auto;
 }
 
 button:hover {
-  cursor: url('icons/hand.png'), auto;
+  cursor: url('icons/hand-white.png'), auto;
+}
+
+input,
+textarea {
+  cursor: url('icons/text-cursor.png'), text;
 }

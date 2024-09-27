@@ -8,18 +8,18 @@ export default function ExpenseForm() {
           </h1>
           <div className="py-6 flex justify-center items-center flex-col md:flex-row">
             <input
-              className="rounded-xl h-10 w-64 md:w-56 md:me-3 lg:me-[5%] lg:w-72 lg:h-14"
+              className="rounded-xl text-lg p-4 h-10 w-64 md:w-56 md:me-3 lg:me-[5%] lg:w-72 lg:h-14"
               type="text"
             />
             <input
-              className="rounded-xl h-10 w-64 mt-3 md:mt-0 md:w-44 md:me-3 lg:me-[5%] lg:w-52 lg:h-14 "
+              className="rounded-xl text-lg p-4 h-10 w-64 mt-3 md:mt-0 md:w-44 md:me-3 lg:me-[5%] lg:w-52 lg:h-14 "
               type="text"
             />
             <input
-              className="rounded-xl h-10 w-64 mt-3 md:mt-0 md:w-40 md:me-7 lg:me-[5%] lg:w-72 lg:h-14 "
+              className="rounded-xl text-lg p-4 h-10 w-64 mt-3 md:mt-0 md:w-40 md:me-7 lg:me-[5%] lg:w-72 lg:h-14 "
               type="text"
             />
-            <button className="mt-5 md:mt-0 font-semibold bg-[#9CADFF] py-2 px-12 rounded-xl border-black border lg:text-xl 2xl:text-2xl 2xl:py-1">
+            <button className="mt-5 p-4 md:mt-0 font-semibold bg-[#9CADFF] py-2 px-12 rounded-xl border-black border lg:text-xl 2xl:text-2xl 2xl:py-1">
               Add
             </button>
           </div>
