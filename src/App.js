@@ -13,19 +13,26 @@ function App() {
   //-------------------------------------------------------//
 
   const [budget, setBudget] = useState(0);
-  const [isModalOpen, setIsModalOpen] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [expenses, setExpenses] = useState([]);
 
   const funcModal = () => {
     setIsModalOpen(true);
   };
+
+  //-------------------------------------------------------//
+
+  function addExpense(newexpense) {
+    setExpenses((prev) => [...prev, newexpense]);
+  }
 
   return (
     <>
       <main>
         <Header onTotalClick={funcModal} budget={budget} />
         <Remaining />
-        <ExpenseForm />
-        <ExpenseList />
+        <ExpenseForm onAddExpense={addExpense} />
+        <ExpenseList expenses={expenses} />
       </main>
 
       {isModalOpen && (

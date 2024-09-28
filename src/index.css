@@ -28,7 +28,8 @@ body {
   cursor: url('icons/cursor-white.png'), auto;
 }
 
-button:hover {
+button:hover,
+select {
   cursor: url('icons/hand-white.png'), auto;
 }
 
