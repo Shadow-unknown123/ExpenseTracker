@@ -6,12 +6,23 @@ import ExpenseForm from "./components/ExpenseForm";
 import ExpenseList from "./components/ExpenseList";
 
 function App() {
+  //------------buffer type memory-------------------------//
+
+  let budinp;
+
+  //-------------------------------------------------------//
+
+  const [budget, setBudget] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(true);
+
+  const funcModal = () => {
+    setIsModalOpen(true);
+  };
 
   return (
     <>
       <main>
-        <Header />
+        <Header onTotalClick={funcModal} budget={budget} />
         <Remaining />
         <ExpenseForm />
         <ExpenseList />
@@ -24,10 +35,24 @@ function App() {
               Enter Total Budget{" "}
             </h1>
             <div className="py-10 flex justify-center items-center flex-col">
-              <input className="rounded-md h-10 w-56" type="text" />
-              <button className="mt-5 font-semibold bg-[#5CF066] py-2 px-14 rounded-lg border-black border ">
+              <input
+                onChange={(e) => {
+                  budinp = e.target.value;
+                }}
+                className="rounded-md h-10 w-56 ps-2"
+                type="text"
+              />
+
+              <button
+                onClick={() => {
+                  setBudget(budinp);
+                  setIsModalOpen(false);
+                }}
+                className="mt-5 font-semibold bg-[#5CF066] py-2 px-14 rounded-lg border-black border "
+              >
                 Save
               </button>
+
               <button
                 className="mt-5 font-semibold bg-[#F46A6C] py-2 px-12 rounded-lg border-black border "
                 onClick={() => {
