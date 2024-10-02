@@ -6,10 +6,10 @@ export default function ExpenseList({ expenses }) {
           {item.name}
         </h1>
         <h1 className="text-center font-semibold rounded-xl bg-[#D8FBFF] w-20 md:text-lg md:py-2 md:min-w-32 lg:min-w-36 2xl:py-4 2xl:min-w-60">
-          {item.date}
+          ${item.price}
         </h1>
         <h1 className="text-center font-semibold rounded-xl bg-[#D8FBFF] w-20 md:text-lg md:py-2 md:min-w-32 lg:min-w-36 2xl:py-4 2xl:min-w-60">
-          ${item.price}
+          {item.date}
         </h1>
         <h1 className="text-center font-semibold rounded-xl bg-[#D8FBFF] w-20 md:text-lg md:py-2 md:min-w-32 lg:min-w-36 2xl:py-4 2xl:min-w-60">
           {item.catagory}
