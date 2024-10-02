@@ -1,8 +1,8 @@
 export default function Header({ onTotalClick, budget }) {
   return (
     <>
-      <div className="sm:flex sm:bg-[#333333] sm:justify-between sm:px-16 sticky top-0 z-10 ">
-        <div className="bg-[#333333] py-7 sm:py-8 text-white font-bold text-3xl flex justify-center items-center sm:text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl">
+      <div className="sm:flex sm:bg-[#333333] sm:justify-between sm:px-16 sm:sticky sm:top-0  sm:z-10 ">
+        <div className="bg-[#333333] py-7 sm:py-8 text-white font-bold sticky top-0 text-3xl flex justify-center items-center sm:text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl">
           <h1>Expense Tracker</h1>
         </div>
         <div className=" flex justify-center items-center">
