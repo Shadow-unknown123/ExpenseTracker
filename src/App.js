@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import Remaining from "./components/Remaining";
@@ -6,15 +6,24 @@ import ExpenseForm from "./components/ExpenseForm";
 import ExpenseList from "./components/ExpenseList";
 
 function App() {
-  //------------buffer type memory-------------------------//
-
-  let budinp;
-
-  //-------------------------------------------------------//
-
   const [budget, setBudget] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [expenses, setExpenses] = useState([]);
+
+  //------------buffer type memory related to modal for budget-------------------------//
+
+  let budinp;
+
+  //Forces user to enter budget
+
+  useEffect(() => {
+    if (budget < 1) {
+      alert("Please enter your total budget. ~SW");
+      setIsModalOpen(true);
+    }
+  }, [budget]);
+
+  //-------------------------------------------------------//
 
   const funcModal = () => {
     setIsModalOpen(true);
@@ -26,11 +35,19 @@ function App() {
     setExpenses((prev) => [...prev, newexpense]);
   }
 
+  function calcRemaining() {
+    const totalExpenses = expenses.reduce(
+      (acc, expense) => acc + Number(expense.price),
+      0
+    );
+    return budget - totalExpenses;
+  }
+
   return (
     <>
       <main>
         <Header onTotalClick={funcModal} budget={budget} />
-        <Remaining />
+        <Remaining remain={calcRemaining()} budget={budget} />
         <ExpenseForm onAddExpense={addExpense} />
         <ExpenseList expenses={expenses} />
       </main>

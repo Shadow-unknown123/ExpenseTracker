@@ -10,7 +10,7 @@ export default function Header({ onTotalClick, budget }) {
             onClick={onTotalClick}
             className="bg-[#333333] py-3 px-20 rounded-b-[14px] font-semibold text-[#74F9F9] sm:text-xl lg:text-2xl 2xl:text-3xl sm:text-black sm:h-3 sm:px-10  sm:py-6 lg:py-7 sm:bg-[#74F9F9] sm:rounded-lg sm:flex sm:justify-center sm:items-center"
           >
-            Total Budget : {budget}
+            Total Budget : {budget}$
           </div>
         </div>
       </div>
