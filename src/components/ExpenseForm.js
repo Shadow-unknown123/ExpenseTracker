@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function ExpenseForm({ onAddExpense }) {
   const [name, setName] = useState("");
@@ -29,15 +29,32 @@ export default function ExpenseForm({ onAddExpense }) {
   // ----------------------------------------------------------------------------------------------------
 
   const handleaddcat = () => {
-    setcustcat((prev) => [...prev, tempcat]);
+    if (tempcat === "") {
+      return;
+    }
+
+    const updatedCategories = [...custcat, tempcat];
+    setcustcat(updatedCategories);
+    localStorage.setItem("categories", JSON.stringify(updatedCategories));
+
     document.getElementById("catinp").value = "";
   };
+  // ----------------------------------------------------------------------------------------------------
+  useEffect(() => {
+    const storedCategories = JSON.parse(localStorage.getItem("categories"));
+    if (storedCategories) {
+      setcustcat(storedCategories);
+    } else {
+      setcustcat([]);
+    }
+  }, []);
+  // ----------------------------------------------------------------------------------------------------
 
   const catagorymodal = () => {
     if (modal) {
       return (
         <div className="fixed z-10 bg-slate-950/90 top-0 left-0 w-full h-full flex justify-center items-center ">
-          <div className="rounded-2xl bg-[#BCB5E3] w-96 h-80">
+          <div className="rounded-2xl bg-[#BCB5E3] w-96 h-96">
             <h1 className="font-bold text-2xl ps-6 pt-6">Category Editor</h1>
             <div className="py-10 flex justify-center items-center flex-col">
               <input
@@ -50,7 +67,7 @@ export default function ExpenseForm({ onAddExpense }) {
               />
 
               <button
-                className="mt-5 font-semibold bg-[#5CF066] py-2 px-14 rounded-lg border-black border "
+                className="mt-10 font-semibold bg-[#5CF066] py-2 px-14 rounded-lg border-black border "
                 onClick={() => {
                   handleaddcat();
                 }}
@@ -64,6 +81,14 @@ export default function ExpenseForm({ onAddExpense }) {
                 }}
               >
                 Close
+              </button>
+              <button
+                className="mt-5 mb-2 font-semibold bg-[#ee494c] py-2 px-2 rounded-lg border-black border "
+                onClick={() => {
+                  localStorage.removeItem("categories");
+                }}
+              >
+                Wipe Categories
               </button>
             </div>
           </div>
@@ -133,10 +158,7 @@ export default function ExpenseForm({ onAddExpense }) {
               }}
               required
             >
-              <option onClick={console.log("clicked")} value="">
-                Select or Add a catagory
-              </option>
-              <option value="Fruit">Fruit</option>
+              <option value="">Select or Add a catagory</option>
               {custcat.map((cur) => (
                 <option>{cur}</option>
               ))}

@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Remaining from "./components/Remaining";
 import ExpenseForm from "./components/ExpenseForm";
 import ExpenseList from "./components/ExpenseList";
+import Footer from "./components/Footer";
 
 function App() {
   const [budget, setBudget] = useState(0);
@@ -16,12 +17,12 @@ function App() {
 
   //Forces user to enter budget
 
-  useEffect(() => {
-    if (budget < 1) {
-      alert("Please enter your total budget. ~SW");
-      setIsModalOpen(true);
-    }
-  }, [budget]);
+  // useEffect(() => {
+  //   if (budget < 1) {
+  //     alert("Please enter your total budget. ~SW");
+  //     setIsModalOpen(true);
+  //   }
+  // }, [budget]);
 
   //-------------------------------------------------------//
 
@@ -31,9 +32,18 @@ function App() {
 
   //-------------------------------------------------------//
 
+  useEffect(() => {
+    setBudget(localStorage.getItem("budget"));
+
+    const fetchexpenses = JSON.parse(localStorage.getItem("expenses")) || [];
+    setExpenses(fetchexpenses);
+  }, []);
+
   function addExpense(newexpense) {
     newexpense = { ...newexpense, id: Date.now() };
-    setExpenses((prev) => [...prev, newexpense]);
+    const updatedExpenses = [...expenses, newexpense];
+    setExpenses(updatedExpenses);
+    localStorage.setItem("expenses", JSON.stringify(updatedExpenses));
   }
 
   function calcRemaining() {
@@ -51,6 +61,7 @@ function App() {
         <Remaining remain={calcRemaining()} budget={budget} />
         <ExpenseForm onAddExpense={addExpense} />
         <ExpenseList expenses={expenses} setExpenses={setExpenses} />
+        <Footer />
       </main>
 
       {isModalOpen && (
@@ -71,6 +82,7 @@ function App() {
               <button
                 onClick={() => {
                   setBudget(budinp);
+                  localStorage.setItem("budget", budinp);
                   setIsModalOpen(false);
                 }}
                 className="mt-5 font-semibold bg-[#5CF066] py-2 px-14 rounded-lg border-black border "

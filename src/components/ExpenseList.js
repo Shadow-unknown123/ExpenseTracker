@@ -1,6 +1,8 @@
 export default function ExpenseList({ expenses, setExpenses }) {
   const removeit = (id) => {
-    setExpenses(expenses.filter((item) => item.id !== id));
+    const updatedExpenses = expenses.filter((item) => item.id !== id);
+    setExpenses(updatedExpenses);
+    localStorage.setItem("expenses", JSON.stringify(updatedExpenses));
   };
 
   const listItems = expenses.map((item) => (
@@ -34,7 +36,7 @@ export default function ExpenseList({ expenses, setExpenses }) {
   return (
     <>
       <div className="flex justify-center items-center">
-        <div className="w-[96%] md:w-[95%] md:px-7 lg:w-[90%] h-[550px] bg-[#7B80B9] rounded-xl mt-8 overflow-auto no-scrollbar mb-7">
+        <div className="w-[96%] md:w-[95%] md:px-7 lg:w-[90%] h-[600px] bg-[#7B80B9] rounded-xl mt-10 overflow-auto no-scrollbar mb-7">
           <div className="flex justify-center items-center flex-col">
             <input
               className="sticky top-0 mt-7 w-[95%] md:w-[97%] 2xl:w-[99%] rounded-xl py-3 px-3 text-lg lg:text-2xl md:py-4 2xl:py-5 bg-[#AEB0FF] bg-[url('icons/Search.png')] bg-[length:32px_32px] bg-[position:14px_center] bg-no-repeat pl-14 "
