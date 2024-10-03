@@ -9,20 +9,20 @@ export default function ExpenseList({ expenses, setExpenses }) {
       key={item.id}
     >
       <div className="flex justify-evenly items-center">
-        <h1 className="text-center font-semibold rounded-xl bg-[#D8FBFF] w-20 md:text-lg md:py-2 md:min-w-32 lg:min-w-36 2xl:py-4 2xl:min-w-60">
+        <h1 className="text-center font-semibold rounded-xl bg-[#b2b5fc] w-20 md:text-lg md:py-2 md:min-w-32 lg:min-w-36 2xl:py-4 2xl:min-w-60">
           {item.name}
         </h1>
-        <h1 className="text-center font-semibold rounded-xl bg-[#D8FBFF] w-20 md:text-lg md:py-2 md:min-w-32 lg:min-w-36 2xl:py-4 2xl:min-w-60">
+        <h1 className="text-center font-semibold rounded-xl bg-[#7df1fd] w-20 md:text-lg md:py-2 md:min-w-32 lg:min-w-36 2xl:py-4 2xl:min-w-60">
           ${item.price}
         </h1>
-        <h1 className="text-center font-semibold rounded-xl bg-[#D8FBFF] w-20 md:text-lg md:py-2 md:min-w-32 lg:min-w-36 2xl:py-4 2xl:min-w-60">
+        <h1 className="text-center font-semibold rounded-xl bg-[#ffffd1] w-20 md:text-lg md:py-2 md:min-w-32 lg:min-w-36 2xl:py-4 2xl:min-w-60">
           {item.date}
         </h1>
-        <h1 className="text-center font-semibold rounded-xl bg-[#D8FBFF] w-20 md:text-lg md:py-2 md:min-w-32 lg:min-w-36 2xl:py-4 2xl:min-w-60">
+        <h1 className="text-center font-semibold rounded-xl bg-[#f3b8ff] w-20 md:text-lg md:py-2 md:min-w-32 lg:min-w-36 2xl:py-4 2xl:min-w-60">
           {item.catagory}
         </h1>
         <button
-          className="bg-[#FFABAC] text-xs md:text-base lg:text-base 2xl:text-lg px-1 py-[2px] rounded-xl border border-black font-semibold 2xl:font-bold md:py-1 md:px-4 2xl:py-2 2xl:px-7"
+          className="bg-[#ffa4a5] text-xs md:text-base lg:text-base 2xl:text-lg px-1 py-[2px] rounded-xl border border-black font-semibold 2xl:font-bold md:py-1 md:px-4 2xl:py-2 2xl:px-7"
           onClick={() => removeit(item.id)}
         >
           Remove
