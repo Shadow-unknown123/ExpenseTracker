@@ -32,6 +32,7 @@ function App() {
   //-------------------------------------------------------//
 
   function addExpense(newexpense) {
+    newexpense = { ...newexpense, id: Date.now() };
     setExpenses((prev) => [...prev, newexpense]);
   }
 
@@ -49,7 +50,7 @@ function App() {
         <Header onTotalClick={funcModal} budget={budget} />
         <Remaining remain={calcRemaining()} budget={budget} />
         <ExpenseForm onAddExpense={addExpense} />
-        <ExpenseList expenses={expenses} />
+        <ExpenseList expenses={expenses} setExpenses={setExpenses} />
       </main>
 
       {isModalOpen && (

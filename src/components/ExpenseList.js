@@ -1,6 +1,13 @@
-export default function ExpenseList({ expenses }) {
+export default function ExpenseList({ expenses, setExpenses }) {
+  const removeit = (id) => {
+    setExpenses(expenses.filter((item) => item.id !== id));
+  };
+
   const listItems = expenses.map((item) => (
-    <li className="bg-[#494557] mt-6 w-[90%] md:w-[95%] 2xl:w-[98%] rounded-lg py-3 md:py-4 2xl:py-5 2xl:rounded-xl">
+    <li
+      className="bg-[#494557] mt-6 w-[90%] md:w-[95%] 2xl:w-[98%] rounded-lg py-3 md:py-4 2xl:py-5 2xl:rounded-xl"
+      key={item.id}
+    >
       <div className="flex justify-evenly items-center">
         <h1 className="text-center font-semibold rounded-xl bg-[#D8FBFF] w-20 md:text-lg md:py-2 md:min-w-32 lg:min-w-36 2xl:py-4 2xl:min-w-60">
           {item.name}
@@ -14,7 +21,10 @@ export default function ExpenseList({ expenses }) {
         <h1 className="text-center font-semibold rounded-xl bg-[#D8FBFF] w-20 md:text-lg md:py-2 md:min-w-32 lg:min-w-36 2xl:py-4 2xl:min-w-60">
           {item.catagory}
         </h1>
-        <button className="bg-[#FFABAC] text-xs md:text-base lg:text-base 2xl:text-lg px-1 py-[2px] rounded-xl border border-black font-semibold 2xl:font-bold md:py-1 md:px-4 2xl:py-2 2xl:px-7">
+        <button
+          className="bg-[#FFABAC] text-xs md:text-base lg:text-base 2xl:text-lg px-1 py-[2px] rounded-xl border border-black font-semibold 2xl:font-bold md:py-1 md:px-4 2xl:py-2 2xl:px-7"
+          onClick={() => removeit(item.id)}
+        >
           Remove
         </button>
       </div>
